@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PDFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblDM_Branch">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsEnable" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblDM_Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsEnable" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblDM_Mail">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblDM_Type">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsEnable" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblDM_User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="200" />
+          <Property Name="GroupID" Type="varchar" MaxLength="10" />
+          <Property Name="BranchID" Type="varchar" MaxLength="10" />
+          <Property Name="IsLock" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblPDF_FileData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="TypeID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BranchID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UpdatedDate" Type="date" Nullable="false" />
+          <Property Name="UpdatedUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShortContent" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="GroupAccess" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Idea" Type="nvarchar(max)" />
+          <Property Name="IsLock" Type="bit" Nullable="false" />
+          <Property Name="LockUser" Type="varchar" MaxLength="50" />
+          <Property Name="LockDate" Type="date" />
+          <Property Name="IsClose" Type="bit" Nullable="false" />
+          <Property Name="CloseDate" Type="date" />
+          <Property Name="CLoseUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="PDFModelStoreContainer">
+          <EntitySet Name="tblDM_Branch" EntityType="Self.tblDM_Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDM_Group" EntityType="Self.tblDM_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDM_Mail" EntityType="Self.tblDM_Mail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDM_Type" EntityType="Self.tblDM_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDM_User" EntityType="Self.tblDM_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPDF_FileData" EntityType="Self.tblPDF_FileData" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PDFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblDM_Branch">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblDM_Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblDM_Type">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblDM_User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GroupID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsLock" Type="Boolean" />
+          <Property Name="BranchID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PDFEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblDM_Branch" EntityType="Self.tblDM_Branch" />
+          <EntitySet Name="tblDM_Group" EntityType="Self.tblDM_Group" />
+          <EntitySet Name="tblDM_Type" EntityType="Self.tblDM_Type" />
+          <EntitySet Name="tblDM_User" EntityType="Self.tblDM_User" />
+          <EntitySet Name="tblPDF_FileData" EntityType="PDFModel.tblPDF_FileData" />
+          <EntitySet Name="tblDM_Mail" EntityType="PDFModel.tblDM_Mail" />
+        </EntityContainer>
+        <EntityType Name="tblPDF_FileData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TypeID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BranchID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShortContent" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GroupAccess" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsLock" Type="Boolean" Nullable="false" />
+          <Property Name="LockUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LockDate" Type="DateTime" Precision="0" />
+          <Property Name="Idea" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsClose" Type="Boolean" Nullable="false" />
+          <Property Name="CloseDate" Type="DateTime" Precision="0" />
+          <Property Name="CLoseUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblDM_Mail">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnable" Type="Boolean" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PDFModelStoreContainer" CdmEntityContainer="PDFEntities">
+          <EntitySetMapping Name="tblDM_Branch">
+            <EntityTypeMapping TypeName="PDFModel.tblDM_Branch">
+              <MappingFragment StoreEntitySet="tblDM_Branch">
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDM_Group">
+            <EntityTypeMapping TypeName="PDFModel.tblDM_Group">
+              <MappingFragment StoreEntitySet="tblDM_Group">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDM_Type">
+            <EntityTypeMapping TypeName="PDFModel.tblDM_Type">
+              <MappingFragment StoreEntitySet="tblDM_Type">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDM_User">
+            <EntityTypeMapping TypeName="PDFModel.tblDM_User">
+              <MappingFragment StoreEntitySet="tblDM_User">
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPDF_FileData">
+            <EntityTypeMapping TypeName="PDFModel.tblPDF_FileData">
+              <MappingFragment StoreEntitySet="tblPDF_FileData">
+                <ScalarProperty Name="CLoseUser" ColumnName="CLoseUser" />
+                <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+                <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+                <ScalarProperty Name="Idea" ColumnName="Idea" />
+                <ScalarProperty Name="LockDate" ColumnName="LockDate" />
+                <ScalarProperty Name="LockUser" ColumnName="LockUser" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="GroupAccess" ColumnName="GroupAccess" />
+                <ScalarProperty Name="ShortContent" ColumnName="ShortContent" />
+                <ScalarProperty Name="UpdatedUser" ColumnName="UpdatedUser" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDM_Mail">
+            <EntityTypeMapping TypeName="PDFModel.tblDM_Mail">
+              <MappingFragment StoreEntitySet="tblDM_Mail">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
