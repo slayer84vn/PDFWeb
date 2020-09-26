@@ -131,6 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\SignIn.aspx" />
+    <Content Include="ContactView.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Code\PDFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PDFModel.edmx</DependentUpon>
@@ -144,7 +146,7 @@
     <Content Include="Content\Content.css" />
     <Content Include="Content\Images\bgd_00.jpg" />
     <Content Include="Content\View.js" />
-    <Content Include="Content\GridViewUpdate.js" />
+    <Content Include="Content\GridViewUpdate_1.js" />
     <Content Include="Content\GridViewSimple.js" />
     <Content Include="Content\GridView.css" />
     <Content Include="Content\GridView.js" />
@@ -235,6 +237,7 @@
     <Content Include="Content\Script.js" />
     <Content Include="Content\SignInRegister.css" />
     <Content Include="Content\SignInRegister.js" />
+    <Content Include="danhba.ico" />
     <Content Include="DeniedPage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Report.aspx" />
@@ -276,6 +279,32 @@
     </Compile>
     <Compile Include="Account\SignIn.aspx.designer.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\DonVi_Result.cs">
+      <DependentUpon>PDFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\tblDM_DanhBa.cs">
+      <DependentUpon>PDFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\tblDM_DonVi.cs">
+      <DependentUpon>PDFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\tblDM_PhongBan.cs">
+      <DependentUpon>PDFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactView.aspx.cs">
+      <DependentUpon>ContactView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactView.aspx.designer.cs">
+      <DependentUpon>ContactView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\AuthHelper.cs" />
     <Compile Include="Code\DBContext.cs" />

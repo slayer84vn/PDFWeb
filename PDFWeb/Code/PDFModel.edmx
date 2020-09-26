@@ -13,6 +13,25 @@
           <Property Name="BranchName" Type="nvarchar" MaxLength="50" />
           <Property Name="IsEnable" Type="bit" />
         </EntityType>
+        <EntityType Name="tblDM_DanhBa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DonVi" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhongBan" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChucDanh" Type="nvarchar" MaxLength="100" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="200" />
+          <Property Name="CoQuan" Type="nvarchar" MaxLength="20" />
+          <Property Name="NoiBo" Type="nvarchar" MaxLength="5" />
+          <Property Name="DiDong" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tblDM_DonVi">
+          <Key>
+            <PropertyRef Name="DonVi" />
+          </Key>
+          <Property Name="DonVi" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblDM_Group">
           <Key>
             <PropertyRef Name="GroupID" />
@@ -28,6 +47,12 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="IsEnable" Type="bit" />
           <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblDM_PhongBan">
+          <Key>
+            <PropertyRef Name="PhongBan" />
+          </Key>
+          <Property Name="PhongBan" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="tblDM_Type">
           <Key>
@@ -67,10 +92,15 @@
           <Property Name="CloseDate" Type="date" />
           <Property Name="CLoseUser" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Function Name="P_GetDonVi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="P_GetPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PDFModelStoreContainer">
           <EntitySet Name="tblDM_Branch" EntityType="Self.tblDM_Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDM_DanhBa" EntityType="Self.tblDM_DanhBa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDM_DonVi" EntityType="Self.tblDM_DonVi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDM_Group" EntityType="Self.tblDM_Group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDM_Mail" EntityType="Self.tblDM_Mail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDM_PhongBan" EntityType="Self.tblDM_PhongBan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDM_Type" EntityType="Self.tblDM_Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDM_User" EntityType="Self.tblDM_User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPDF_FileData" EntityType="Self.tblPDF_FileData" Schema="dbo" store:Type="Tables" />
@@ -120,6 +150,9 @@
           <EntitySet Name="tblDM_User" EntityType="Self.tblDM_User" />
           <EntitySet Name="tblPDF_FileData" EntityType="PDFModel.tblPDF_FileData" />
           <EntitySet Name="tblDM_Mail" EntityType="PDFModel.tblDM_Mail" />
+          <EntitySet Name="tblDM_DanhBa" EntityType="PDFModel.tblDM_DanhBa" />
+          <EntitySet Name="tblDM_DonVi" EntityType="PDFModel.tblDM_DonVi" />
+          <EntitySet Name="tblDM_PhongBan" EntityType="PDFModel.tblDM_PhongBan" />
         </EntityContainer>
         <EntityType Name="tblPDF_FileData">
           <Key>
@@ -148,6 +181,34 @@
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsEnable" Type="Boolean" />
           <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblDM_DanhBa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DonVi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhongBan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChucDanh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HoTen" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CoQuan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NoiBo" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DiDong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="DonVi_Result">
+          <Property Type="String" Name="DonVi" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <EntityType Name="tblDM_DonVi">
+          <Key>
+            <PropertyRef Name="DonVi" />
+          </Key>
+          <Property Name="DonVi" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblDM_PhongBan">
+          <Key>
+            <PropertyRef Name="PhongBan" />
+          </Key>
+          <Property Name="PhongBan" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -223,6 +284,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblDM_DanhBa">
+            <EntityTypeMapping TypeName="PDFModel.tblDM_DanhBa">
+              <MappingFragment StoreEntitySet="tblDM_DanhBa">
+                <ScalarProperty Name="DiDong" ColumnName="DiDong" />
+                <ScalarProperty Name="NoiBo" ColumnName="NoiBo" />
+                <ScalarProperty Name="CoQuan" ColumnName="CoQuan" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
+                <ScalarProperty Name="PhongBan" ColumnName="PhongBan" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDM_DonVi">
+            <EntityTypeMapping TypeName="PDFModel.tblDM_DonVi">
+              <MappingFragment StoreEntitySet="tblDM_DonVi">
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDM_PhongBan">
+            <EntityTypeMapping TypeName="PDFModel.tblDM_PhongBan">
+              <MappingFragment StoreEntitySet="tblDM_PhongBan">
+                <ScalarProperty Name="PhongBan" ColumnName="PhongBan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -237,8 +326,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

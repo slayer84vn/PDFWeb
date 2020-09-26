@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PDFWeb {
-    
-    
-    public partial class Update {
-        
+namespace PDFWeb
+{
+
+
+    public partial class Update
+    {
+
         /// <summary>
         /// PageToolbar control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxMenu PageToolbar;
-        
+
         /// <summary>
         /// FilterPanel control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPanel FilterPanel;
-        
+
         /// <summary>
         /// SearchButtonEdit control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButtonEdit SearchButtonEdit;
-        
+
         /// <summary>
         /// GridView control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView GridView;
-        
+
         /// <summary>
         /// EntityDataSourceFile control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceFile;
-        
+
         /// <summary>
         /// EntityDataSourceGroup control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceGroup;
-        
+
         /// <summary>
         /// EntityDataSourceType control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceType;
-        
+
         /// <summary>
         /// EntityDataSourceBranch control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceBranch;
-        
+
         /// <summary>
         /// popFile control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl popFile;
-        
+
         /// <summary>
         /// txtFile control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxUploadControl txtFile;
-        
+
         /// <summary>
         /// cbbBranch control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cbbBranch;
-        
+
         /// <summary>
         /// cbbType control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cbbType;
-        
+
         /// <summary>
         /// txtShortContent control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxMemo txtShortContent;
-        
+
         /// <summary>
         /// txtNhom control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTokenBox txtNhom;
-        
+
         /// <summary>
         /// btnSave control.
         /// </summary>

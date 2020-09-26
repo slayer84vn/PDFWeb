@@ -60,15 +60,6 @@ namespace PDFWeb
         protected global::DevExpress.Web.ASPxMemo txtIdea;
 
         /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnSave;
-
-        /// <summary>
         /// txtMailAddress control.
         /// </summary>
         /// <remarks>
@@ -87,13 +78,13 @@ namespace PDFWeb
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceMail;
 
         /// <summary>
-        /// btnSendMail control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnSendMail;
+        protected global::DevExpress.Web.ASPxButton btnSave;
 
         /// <summary>
         /// btnPrintAll control.
@@ -130,6 +121,33 @@ namespace PDFWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnClose;
+
+        /// <summary>
+        /// VerticalGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxVerticalGrid VerticalGrid;
+
+        /// <summary>
+        /// EntityDataSourceType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceType;
+
+        /// <summary>
+        /// EntityDataSourceBranch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceBranch;
 
         /// <summary>
         /// treeView control.

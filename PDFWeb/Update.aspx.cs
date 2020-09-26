@@ -28,6 +28,8 @@ namespace PDFWeb
                     cbbBranch.ReadOnly = true;
                     cbbBranch.Value = Session["BranchID"].ToString();
                 }
+                //txtNhom.DataBind();
+                txtNhom.Value = Session["GroupID"].ToString();
             }
         }
 

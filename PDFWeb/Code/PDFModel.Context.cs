@@ -31,5 +31,8 @@ namespace PDFWeb.Code
         public virtual DbSet<tblDM_User> tblDM_User { get; set; }
         public virtual DbSet<tblPDF_FileData> tblPDF_FileData { get; set; }
         public virtual DbSet<tblDM_Mail> tblDM_Mail { get; set; }
+        public virtual DbSet<tblDM_DanhBa> tblDM_DanhBa { get; set; }
+        public virtual DbSet<tblDM_DonVi> tblDM_DonVi { get; set; }
+        public virtual DbSet<tblDM_PhongBan> tblDM_PhongBan { get; set; }
     }
 }

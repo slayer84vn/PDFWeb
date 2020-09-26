@@ -16,36 +16,32 @@
         //pageToolbar.GetItemByName("Edit").SetEnabled(gridView.GetFocusedRowIndex() !== -1);
     }
     function onPageToolbarItemClick(s, e) {
-        switch (e.item.name) {
-            case "ToggleFilterPanel":
-                toggleFilterPanel();
-                break;
+        switch(e.item.name) {
             case "New":
-                ResetForm();
-                popFile.Show();
+                gridView.AddNewRow();
+                break;
+            case "Edit":
+                gridView.StartEditRow(gridView.GetFocusedRowIndex());
+                break;
+            case "Delete":
+                deleteSelectedRecords();
+                break;
+            case "ResetPass":
+                if (confirm('Bạn có muốn Reset Pass không?')) {
+                    gridView.PerformCallback('ResetPass');
+                };
                 break;
             case "Export":
                 gridView.ExportTo(ASPxClientGridViewExportFormat.Xlsx);
                 break;
         }
     }
-    function ResetForm() {
-        cbbBranch.SetSelectedIndex(-1);
-        cbbType.SetSelectedIndex(-1);
-        txtNhom.SetText('');
-        txtShortContent.SetText('');
-    }
-
-    function toggleFilterPanel() {
-        filterPanel.Toggle();
-    }
-
-    function onFilterPanelExpanded(s, e) {
-        adjustPageControls();
-        searchButtonEdit.SetFocus();
+    function deleteSelectedRecords() {
+        if(confirm('Confirm Delete?')) {
+            gridView.PerformCallback('delete');
+        }
     }
     window.onGridViewInit = onGridViewInit;
     window.onGridViewSelectionChanged = onGridViewSelectionChanged;
     window.onPageToolbarItemClick = onPageToolbarItemClick;
-    window.onFilterPanelExpanded = onFilterPanelExpanded;
 })();

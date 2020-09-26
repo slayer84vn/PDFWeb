@@ -5,7 +5,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="Head">
     <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/Content/GridView.css") %>' />
-    <script type="text/javascript" src='<%# ResolveUrl("~/Content/GridViewUpdate.js") %>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/Content/GridViewUpdate_1.js") %>'></script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="PageToolbar">
@@ -184,7 +184,7 @@
                     </tr>
                    <tr style="height:35px">
                         <td align="right">
-                            <dx:ASPxTokenBox ID="txtNhom" runat="server" ClientInstanceName="txtNhom" Caption="Các nhóm truy cập"  Width="300px" AllowCustomTokens="false" DataSourceID="EntityDataSourceGroup" ValueField="GroupID" TextField="GroupName" CaseSensitiveTokens="False" DataSecurityMode="Strict" IncrementalFilteringMode="None">
+                            <dx:ASPxTokenBox ID="txtNhom" runat="server" ClientInstanceName="txtNhom" Caption="Các nhóm truy cập"  Width="300px" AllowCustomTokens="false" DataSourceID="EntityDataSourceGroup" ValueField="GroupID" TextField="GroupName" CaseSensitiveTokens="False"  IncrementalFilteringMode="None">
                                 <CaptionSettings ShowColon="False" />
                                 <ValidationSettings Display="Dynamic">
                                     <RequiredField IsRequired="True" />
