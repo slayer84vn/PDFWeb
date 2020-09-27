@@ -1,24 +1,24 @@
-using PDFWeb.Code;
+using Gmap.Code;
 using System.Web;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System;
 
-namespace PDFWeb.Model {
+namespace Gmap.Model {
 
     public static class AuthHelper {
-        public static tblDM_User SignIn(string userName, string password) {
-            using (PDFEntities entities = new PDFEntities())
+        public static tblUser SignIn(string userName, string password) {
+            using (CHXD_MapEntities entities = new CHXD_MapEntities())
             {
                 string passMd5 = GetMD5(password);
-                tblDM_User user = entities.tblDM_User.FirstOrDefault(z => z.UserName == userName && z.Pass == passMd5 && z.IsLock == false);
+                tblUser user = entities.tblUsers.FirstOrDefault(z => z.UserName == userName && z.Pass == passMd5 && z.IsLock == false);
                 HttpContext.Current.Session["User"] = user;
                 if (user != null)
                 {
                     HttpContext.Current.Session["UserName"] = user.UserName;
                     HttpContext.Current.Session["GroupID"] = user.GroupID;
-                    HttpContext.Current.Session["BranchID"] = user.BranchID;
+                    //HttpContext.Current.Session["BranchID"] = user.BranchID;
                 }
                 return user;
             }
@@ -31,8 +31,8 @@ namespace PDFWeb.Model {
             return GetLoggedInUserInfo() != null;
         }
 
-        public static tblDM_User GetLoggedInUserInfo() {
-            return HttpContext.Current.Session["User"] as tblDM_User;
+        public static tblUser GetLoggedInUserInfo() {
+            return HttpContext.Current.Session["User"] as tblUser;
         }
 
         public static string GetMD5(string str)

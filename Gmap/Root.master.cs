@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using PDFWeb.Model;
+using Gmap.Model;
 using DevExpress.Web;
-using PDFWeb.Code;
+using Gmap.Code;
 using System.Linq;
 using System.Configuration;
 
-namespace PDFWeb {
+namespace Gmap {
     public partial class Root : MasterPage {
         public bool EnableBackButton { get; set; }
         protected void Page_Load(object sender, EventArgs e) {
             if(!string.IsNullOrEmpty(Page.Header.Title))
                 Page.Header.Title += " - ";
-            Page.Header.Title = Page.Header.Title + "PDF FILE MANAGEMENT";
+            Page.Header.Title = Page.Header.Title + "CHXD MAP";
             Page.Header.DataBind();
             //UpdateUserMenuItemsVisible();
             HideUnusedContent();
             if (Session["GroupID"] != null)
             {
-                ApplicationMenu.Items[3].Visible = Session["GroupID"].ToString() == "QL";
+                ApplicationMenu.Items[2].Visible = Session["GroupID"].ToString() == "A";
             }
             UpdateUserInfo();
 
@@ -73,7 +73,7 @@ namespace PDFWeb {
         protected void RightAreaMenu_ItemClick(object source, DevExpress.Web.MenuItemEventArgs e) {
             if(e.Item.Name == "SignOutItem") {
                 AuthHelper.SignOut(); // DXCOMMENT: Your Signing out logic
-                Response.Redirect("~/Account/SignIn.aspx");
+                Response.Redirect("~/SignIn.aspx");
             }
             else if (e.Item.Name == "ChangePassItem")
             {
@@ -98,10 +98,10 @@ namespace PDFWeb {
                 return;
             }
 
-            tblDM_User user = Session["User"] as tblDM_User;
-            using (PDFEntities entities = new PDFEntities())
+            tblUser user = Session["User"] as tblUser;
+            using (CHXD_MapEntities entities = new CHXD_MapEntities())
             {
-                tblDM_User UserUpdate = entities.tblDM_User.SingleOrDefault(x => x.UserName == user.UserName);
+                tblUser UserUpdate = entities.tblUsers.SingleOrDefault(x => x.UserName == user.UserName);
                 UserUpdate.Pass = AuthHelper.GetMD5(txtPass1.Text);
                 entities.SaveChanges();
 

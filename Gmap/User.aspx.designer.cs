@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PDFWeb {
-    
-    
-    public partial class User {
-        
+namespace Gmap
+{
+
+
+    public partial class User
+    {
+
         /// <summary>
         /// PageToolbar control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxMenu PageToolbar;
-        
+
         /// <summary>
         /// GridView control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView GridView;
-        
+
         /// <summary>
         /// EntityDataSourceUser control.
         /// </summary>
@@ -38,23 +40,5 @@ namespace PDFWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceUser;
-        
-        /// <summary>
-        /// EntityDataSourceGroup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceGroup;
-        
-        /// <summary>
-        /// EntityDataSourceBranch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceBranch;
     }
 }

@@ -1,1 +1,1 @@
-<%@ Application Codebehind="Global.asax.cs" Inherits="PDFWeb.Global_asax" Language="C#" %>
+<%@ Application Codebehind="Global.asax.cs" Inherits="Gmap.Global_asax" Language="C#" %>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using DevExpress.XtraScheduler;
 
-namespace PDFWeb.Model {
+namespace Gmap.Model {
     // Sample Data
     public class Issue {
         public long Id { get; set; }

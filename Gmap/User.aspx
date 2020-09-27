@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Root.master" CodeBehind="User.aspx.cs" Inherits="PDFWeb.User" Title="QUẢN LÝ NGƯỜI DÙNG" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Root.master" CodeBehind="User.aspx.cs" Inherits="Gmap.User" Title="QUẢN LÝ NGƯỜI DÙNG" %>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Data.Linq" TagPrefix="dx" %>
 
@@ -41,9 +41,9 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="PageContent" runat="server">
-    <dx:ASPxGridView runat="server" ID="GridView" ClientInstanceName="gridView"
+        <dx:ASPxGridView runat="server" ID="GridView" ClientInstanceName="gridView"
         KeyFieldName="UserName" EnablePagingGestures="False"
-        CssClass="grid-view" Width="100%" AutoGenerateColumns="False" DataSourceID="EntityDataSourceUser" OnRowInserting="GridView_RowInserting" OnInitNewRow="GridView_InitNewRow" OnCustomCallback="GridView_CustomCallback">
+        CssClass="grid-view" Width="100%" AutoGenerateColumns="False"  OnRowInserting="GridView_RowInserting" OnInitNewRow="GridView_InitNewRow" OnCustomCallback="GridView_CustomCallback" DataSourceID="EntityDataSourceUser">
         <SettingsBehavior AllowFocusedRow="true" AllowSelectByRowClick="true" AllowEllipsisInText="true" AllowDragDrop="false" />
         <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1" />
         <Settings VerticalScrollBarMode="Hidden" HorizontalScrollBarMode="Hidden" />
@@ -75,14 +75,12 @@
                     <ValidationSettings RequiredField-IsRequired="true"></ValidationSettings>
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataComboBoxColumn FieldName="BranchID" VisibleIndex="2" Caption="Đơn vị" Width="150" Settings-AllowFilterBySearchPanel="False">
-                <PropertiesComboBox ValueField="BranchID" TextField="BranchName" DataSourceID="EntityDataSourceBranch">
-                    <ValidationSettings RequiredField-IsRequired="true"></ValidationSettings>
-                </PropertiesComboBox>
-            </dx:GridViewDataComboBoxColumn>
-
             <dx:GridViewDataComboBoxColumn FieldName="GroupID" VisibleIndex="2" Caption="Nhóm người dùng">
-                <PropertiesComboBox ValueField="GroupID" TextField="GroupName" DataSourceID="EntityDataSourceGroup">
+                <PropertiesComboBox>
+                    <Items>
+                        <dx:ListEditItem Text="Người dùng" Value="U" />
+                        <dx:ListEditItem Text="Quản trị" Value="A" />
+                    </Items>
                     <ValidationSettings RequiredField-IsRequired="true"></ValidationSettings>
                 </PropertiesComboBox>
             </dx:GridViewDataComboBoxColumn>
@@ -101,13 +99,10 @@
         <ClientSideEvents Init="onGridViewInit" SelectionChanged="onGridViewSelectionChanged" />
     </dx:ASPxGridView>
 
-    <asp:EntityDataSource ID="EntityDataSourceUser" runat="server" ConnectionString="name=PDFEntities" DefaultContainerName="PDFEntities" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="tblDM_User">
-    </asp:EntityDataSource>
-    <asp:EntityDataSource ID="EntityDataSourceGroup" runat="server" ConnectionString="name=PDFEntities" DefaultContainerName="PDFEntities" EnableFlattening="False" EntitySetName="tblDM_Group">
-    </asp:EntityDataSource>
-       <asp:EntityDataSource ID="EntityDataSourceBranch" runat="server" ConnectionString="name=PDFEntities" DefaultContainerName="PDFEntities" EnableFlattening="False" EntitySetName="tblDM_Branch">
-    </asp:EntityDataSource>
-</asp:Content>
+        <asp:EntityDataSource ID="EntityDataSourceUser" runat="server" ConnectionString="name=CHXD_MapEntities" DefaultContainerName="CHXD_MapEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="tblUsers" EntityTypeFilter="tblUser">
+        </asp:EntityDataSource>
+
+    </asp:Content>
 
 <%--<asp:Content runat="server" ContentPlaceHolderID="RightPanelContent">
     <div class="settings-content">

@@ -33,6 +33,7 @@
             case "Export":
                 gridView.ExportTo(ASPxClientGridViewExportFormat.Xlsx);
                 break;
+
         }
     }
     function deleteSelectedRecords() {

@@ -1,20 +1,20 @@
 using System.Collections.Generic;
-using PDFWeb.Model;
+using Gmap.Model;
 using DevExpress.Web;
 using System;
-using PDFWeb.Code;
+using Gmap.Code;
 using System.Linq;
 
-namespace PDFWeb {
+namespace Gmap {
     public partial class User : System.Web.UI.Page {
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
             {
-                Response.Redirect("~/Account/SignIn.aspx");
+                Response.Redirect("~/SignIn.aspx");
             }
-            if (Session["GroupID"].ToString() != "QL")
+            if (Session["GroupID"].ToString() != "A")
             {
                 Response.Redirect("DeniedPage.aspx");
             }
@@ -23,9 +23,9 @@ namespace PDFWeb {
         protected void GridView_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e) {
             if(e.Parameters == "ResetPass") {
                 string userName = GridView.GetRowValues(GridView.FocusedRowIndex, "UserName").ToString();
-                using (PDFEntities entities = new PDFEntities())
+                using (CHXD_MapEntities entities = new CHXD_MapEntities())
                 {
-                    tblDM_User user = entities.tblDM_User.SingleOrDefault(x => x.UserName == userName);
+                    tblUser user = entities.tblUsers.SingleOrDefault(x => x.UserName == userName);
                     user.Pass = AuthHelper.GetMD5("123456");
                     entities.SaveChanges();
                 }
@@ -33,11 +33,6 @@ namespace PDFWeb {
                 GridView.DataBind();
                 throw new Exception("Reset thành công!");
             }
-        }
-
-        protected void TypeDataSource_Selecting(object sender, DevExpress.Data.Linq.LinqServerModeDataSourceSelectEventArgs e)
-        {
-            e.KeyExpression = "UserName";
         }
 
         protected void GridView_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PDFWeb {
+namespace Gmap {
     
     
     public partial class Root {
